@@ -1,5 +1,6 @@
 /*printing all address and elements of an array*/
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
