@@ -9,5 +9,6 @@ int main(void)
 	printf("%d\n", &c[0]); /*Also prints the address of the first element in the array*/
 	printf("%d\n", c[0]); /*prints the first element in the array*/
 	printf("%d\n", *c); /*print the first element in the array*/
+
 	return 0;
 }
