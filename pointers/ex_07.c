@@ -9,9 +9,11 @@ int main(void)
 	printf("%p\n", *pi);
 	
 	*pi = 66;
-	printf("%d\n", &num);
+	printf("%d\n", *pi);
 
-	printf("%d\n",(void*) pi);
+	printf("value of pi: %d\n",(void*) pi);/* prints the address of num(5)*/
+	
 
+	printf("Address of pi: %d", &pi);
 	return 0;
 }
