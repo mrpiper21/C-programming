@@ -13,7 +13,6 @@ int main(void)
 
 	printf("value of pi: %d\n",(void*) pi);/* prints the address of num(5)*/
 	
-
 	printf("Address of pi: %d", &pi);
 	return 0;
 }

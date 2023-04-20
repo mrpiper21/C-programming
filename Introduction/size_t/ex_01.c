@@ -16,6 +16,9 @@ int main(void){
 	printf("%d\n", sizet);
 	printf("%zu\n", sizet);
 
+	int b = 10;
+	printf("norm int: %d\n", sizeof(b));
+	printf(" int: %d\n", sizeof(sizet));
 	/*Using the sizeof operator with pointers
 The sizeof operator can be used to determine the size of a pointer. The following
 displays the size of a pointer to char:*/

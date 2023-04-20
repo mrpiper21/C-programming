@@ -18,9 +18,7 @@ memory available on a system. The size_t type is used as the return type for the
 operator and as the argument to many functions, including malloc and strlen, among
 others.
 It is good practice to use size_t when declaring variables for sizes such
-as the number of characters and array indexes. It should be used for
-loop counters, indexing into arrays, and sometimes for pointer
-arithmetic.
+as the number of characters and array indexes. It should be used for loop counters, indexing into arrays, and sometimes for pointer arithmetic.
 The declaration of size_t is implementation-specific. It is found in one or more stan‐
 dard headers, such as stdio.h and stdlib.h, and it is typically defined as follows:
 #ifndef __SIZE_T
