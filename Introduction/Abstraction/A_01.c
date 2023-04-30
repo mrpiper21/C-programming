@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 //sort - sort given values in an assending order
 
 int ge_num(void);
@@ -62,10 +62,10 @@ int get_num(void){
 
 int main(void)
 {
+	//int *mal = (int*) malloc(3*sizeof(int));
 	int *num = get_num();
-	for (int i = 0; i < 3; i++){
-		sort(num[i], num[i+1], num[i+2]);
-	}
+	int i = 0;
+	sort(num[i], num[i+1], num[i+2]);
 	//sort(*num[0], *num[1], *num[2]);
 	return 0;
 }
