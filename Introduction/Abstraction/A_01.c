@@ -49,8 +49,7 @@ void sort(int a, int b, int c)
 	}
 }
 
-int main(void)
-{
+int get_num(void){
 	int num1, num2, num3;
     printf("Enter a number: ");
     scanf("%d", &num1);
@@ -58,7 +57,15 @@ int main(void)
 	scanf("%d", &num2);
 	printf("Enter a number: ");
 	scanf("%d", &num3);
+	return (num1, num2, num3);
+}
 
-	sort(num1, num2, num3);
+int main(void)
+{
+	int *num = get_num();
+	for (int i = 0; i < 3; i++){
+		sort(num[i], num[i+1], num[i+2]);
+	}
+	//sort(*num[0], *num[1], *num[2]);
 	return 0;
 }

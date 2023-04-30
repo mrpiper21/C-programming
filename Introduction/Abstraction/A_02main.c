@@ -1,6 +1,5 @@
 #include "header.h"
 #include <stdio.h>
-void sort(int a, int b, int c);
 
 int main(void){
     int num1, num2, num3;
