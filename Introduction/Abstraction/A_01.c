@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-/*sort - sort given values in an assending order*/
+//sort - sort given values in an assending order
+
+int ge_num(void);
+void sort(int a, int b, int c);
 
 void sort(int a, int b, int c)
 {
@@ -48,8 +51,14 @@ void sort(int a, int b, int c)
 
 int main(void)
 {
-	int m = 4, v = -5, p = 2;
-	sort(m, v, p);
+	int num1, num2, num3;
+    printf("Enter a number: ");
+    scanf("%d", &num1);
+	printf("Enter a number: ");
+	scanf("%d", &num2);
+	printf("Enter a number: ");
+	scanf("%d", &num3);
 
-	;return 0;
+	sort(num1, num2, num3);
+	return 0;
 }
