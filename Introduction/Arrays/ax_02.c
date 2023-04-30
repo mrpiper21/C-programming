@@ -16,4 +16,5 @@ int main(void){
     for (int i = 0; i < 3; i++){
         scanf("%d", &score[i]);
     }printf("Average score: %f\n", (score[0] + score[1] + score[2])/ 3.0);
+
 }
