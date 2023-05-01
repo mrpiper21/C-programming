@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(void){
     // prompt user for name
@@ -12,6 +13,9 @@ int main(void){
         count++;
         printf("%c", name[count]);
     }printf("\n%d\n", count);
-    printf("\n");
+
+    // lenght of a string
+    int lenght = strlen(name);
+    printf("%d\n", lenght);
     return 0;
 }
