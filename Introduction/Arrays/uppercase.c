@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 int main(void){
     char name[20];
@@ -13,4 +14,14 @@ int main(void){
             printf("%c", name[i]);
         }
     }printf("\n");
+
+    // or
+
+    for (int l = 0; l < n; l++){
+        if (islower(name[l])){
+            printf("%c", toupper(name[l]));
+        }else{
+            printf("%c", name[l]);
+        }
+    }
 }
