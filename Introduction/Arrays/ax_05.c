@@ -11,7 +11,7 @@ int main(void){
     printf("%i %i\n", a, bar[0]);
 
     for (int i = 0; i < 4; i++){
-        printf(" %i", bar[i]);
+        printf("%i", bar[i]);
     }
 }
 
