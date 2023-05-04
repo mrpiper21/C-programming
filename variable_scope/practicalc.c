@@ -1,48 +1,48 @@
 #include <stdio.h>
 #include <ctype.h>
 
-double calc(int NOW, char x, int array[]);
-char prompt();
+double calc(int num_of_weeks, char type, int hours[]);
 
-int main(void){
+int main(void) {
     int num_of_weeks;
-    printf("Number of weeks taking cs50: ");
+    printf("Number of weeks taking CS50: ");
     scanf("%d", &num_of_weeks);
 
     int hours[num_of_weeks];
-
-    for (int i = 0; i < num_of_weeks; i++){
-        printf("week %d HW Hours: ", i);
-        scanf("%d", hours[i]);
+    for (int i = 0; i < num_of_weeks; i++) {
+        printf("Week %d HW Hours: ", i);
+        scanf("%d", &hours[i]);
     }
 
-    char nb = prompt();
-   // char ch;
-    //printf("Enter T for total hours, A for average hours per week: ");
-    //scanf("%c", &ch);
-    calc(num_of_weeks, prompt(), hours);
+    // Prompt for total or average calculation
+    char type;
+    while (1) {
+        printf("Enter T for total hours, A for average hours per week: ");
+        if (scanf(" %c", &type) == 1 && (type == 'T' || type == 'A'))
+            break;
+        while (getchar() != '\n');
+    }
+ 
+    // Calculate and print result
+    printf("%.2lf\n", calc(num_of_weeks, type, hours));
+    return 0;
 }
-
-double calc(int NOW, char x, int array[]){
-    double sum = 0;
-    if (x == "T"){
-        for (int i =0; i < NOW; i++){
-            sum = sum + array[i];
+ 
+double calc(int num_of_weeks, char type, int hours[]) {
+    double result;
+    if (type == 'T') {
+        result = 0;
+        for (int i = 0; i < num_of_weeks; i++) {
+            result += hours[i];
         }
-        printf("%lf", sum);
-    }
-    if (x == "A"){
-        for (int i = 0; i < NOW; i++){
-            sum = sum + array[i];
+    } 
+    else {
+        double total = 0;
+        for (int i = 0; i < num_of_weeks; i++) {
+            total += hours[i];
         }
-        printf("%lf", sum / NOW);
+        result = total / num_of_weeks;
     }
-    return (0);
-}
-
-char prompt(){
-    char ch;
-    printf("Enter T for total hours, A for average hours per week: ");
-    fgets("%c", &ch);
-    return (ch);
+    printf("%.2lf\n", result);
+    return 0;
 }
