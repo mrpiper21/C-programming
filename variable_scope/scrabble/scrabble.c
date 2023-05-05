@@ -23,12 +23,15 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
-    if (score1 > score2 && score2 < score1){
+    if (score1 > score2){
         printf("Player 1 is the winner!");
-    } else {
+        printf("\n%d\n", score1);
+    } else if (score2 > score1){
         printf("Player 2 is the winner!");
-    }if (score1 == score2){
-        printf("it's a tie!");
+        printf("\n%d\n", score2);
+    } else {
+        printf("it's a tie!\n");
+        printf("p1: %d\n p2: %d\n", score1, score2);
     }
 }
 
@@ -37,14 +40,14 @@ int compute_score(char word[])
     char alphabet[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     // TODO: Compute and return score for string
     int total = 0;
-    char name[] = word;
+    // char name[] = word;
     int len = strlen(word);
     int value[len];
-    for (int = 0; i < len; i++){
-        if (isalpha(name[i])){
-            name[i] = tolower(name[i])
-        } if (name[i] == alphabet[i]){
+    for (int i = 0; i < len; i++){
+        if (isalpha(word[i])){
+            word[i] = tolower(word[i]);
+        } if (word[i] == alphabet[i]){
             value[i] = POINTS[i];
-        }total += value[i];
+        }total += *(value + i);
     }return (total);
 }
