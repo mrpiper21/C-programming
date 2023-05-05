@@ -31,23 +31,27 @@ int main(void)
         printf("\n%d\n", score2);
     } else {
         printf("it's a tie!\n");
-        printf("p1: %d\n p2: %d\n", score1, score2);
+        printf("p1: %d\np2: %d\n", score1, score2);
     }
 }
 
 int compute_score(char word[])
 {
+     // TODO: Compute and return score for string
     char alphabet[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-    // TODO: Compute and return score for string
     int total = 0;
-    // char name[] = word;
     int len = strlen(word);
     int value[len];
     for (int i = 0; i < len; i++){
-        if (isalpha(word[i])){
-            word[i] = tolower(word[i]);
-        } if (word[i] == alphabet[i]){
-            value[i] = POINTS[i];
-        }total += *(value + i);
+        for (int j = 0; j < 24; j++){
+            if (isalpha(word[i])){
+            word[j] = tolower(word[i]);
+            }
+            if (alphabet[j] == word[i]){
+                value[i] = POINTS[j];
+            } else {
+                value[i] = 0;
+            }total += value[i];
+        }
     }return (total);
 }
