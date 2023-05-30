@@ -12,9 +12,9 @@ char upper[] = {"ABCDEFGHIKJKLMNOPQRSTUVWXYZ"};
 
 int pi, len;
 
-int main(int argc, int argv[]){
-    printf("%d", argc);
-    int key = argv[1];
+int main(int argc, char *argv[]){
+    int key = atoi(*argv[argc - 1]);
+    //int KEY = atoi(key)
     int cyphavalue;
     char cyphar_text[50];
 
@@ -29,12 +29,11 @@ int main(int argc, int argv[]){
         for (int i = 0; i < 26; i++){
             if (plain_text[pi] == alphabets[i]){
                 cyphavalue = (key + i) % 26;
+                printf("%d", cyphavalue);
                 cyphar_text[pi]= alphabets[cyphavalue];
             } else if (plain_text[pi] == upper[i]){
                 cyphavalue = (key + i) % 26;
                 cyphar_text[pi]= upper[cyphavalue]; 
-            } else if (plain_text[pi] == " "){
-                cyphar_text[pi] = " ";
             }
         }printf("%c", cyphar_text[pi]);
     }
