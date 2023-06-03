@@ -3,56 +3,24 @@
 #include <string.h>
 #include <stdlib.h>
 
-int pi, len;
+struct HashTable 
+{ 
+    char name[10]; 
+    char number[10]; 
+}; 
 
-int main(int argc, int argv[]){
-    printf("%d", argc);
-    int key = argv[1];
-    int cyphavalue;
-    char cyphar_text[50];
+// Create an array of people
+HashTable people[3]; 
 
-    char plain_text[50];
-    printf("Plain text: ");
-    gets(plain_text);
-    len = strlen(plain_text);
-    
-    printf("ciphertext: ");
-    
-    for (pi = 0; pi < len; pi++){
-        switch(plain_text[pi]) {
-        case 'a':
-            cyphavalue = (key + 0) % 26;
-            cyphar_text[pi] = 'a' + cyphavalue;
-            break;
-        case 'b':
-            cyphavalue = (key + 1) % 26;
-            cyphar_text[pi] = 'a' + cyphavalue;
-            break;
-        case 'c':
-            cyphavalue = (key + 2) % 26;
-            cyphar_text[pi] = 'a' + cyphavalue;
-            break;
-        case 'd':
-            cyphavalue = (key + 3) % 26;
-            cyphar_text[pi] = 'a' + cyphavalue;
-            break;
-        //... and so on until z
-        case ' ':
-            cyphar_text[pi] = ' '; 
-            break;
-        case 'A': // repeat from A to Z
-            cyphavalue = (key + 0) % 26;
-            cyphar_text[pi] = 'A' + cyphavalue;
-            break;
-        case 'B':
-            cyphavalue = (key + 1) % 26;
-            cyphar_text[pi] = 'A' + cyphavalue;
-            break;
-        //... and so on until Z
-        
-        }
-        printf("%c", cyphar_text[pi]);
-    }
-    
-    return 0;
+// function to search a given name in the hash table
+void searchNumberOfName(char *name) 
+{ 
+    // calculate the key from the given name
+    int key = calculateHash(name); 
+  
+    // if match, print the number 
+    if (strcmp(people[key].name, name) == 0) 
+        printf("found %s \n", *people[key].number); 
+    else
+        printf("Not found \n"); 
 }
