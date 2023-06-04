@@ -3,24 +3,46 @@
 #include <string.h>
 #include <stdlib.h>
 
-struct HashTable 
-{ 
-    char name[10]; 
-    char number[10]; 
-}; 
+//int value[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
+char alphabets[] = {"abcdefghijklmnopqrstuvwxyz"};
+char upper[] = {"ABCDEFGHIjkLMNOPQRSTUVWXYZ"};
 
-// Create an array of people
-HashTable people[3]; 
 
-// function to search a given name in the hash table
-void searchNumberOfName(char *name) 
-{ 
-    // calculate the key from the given name
-    int key = calculateHash(name); 
-  
-    // if match, print the number 
-    if (strcmp(people[key].name, name) == 0) 
-        printf("found %s \n", *people[key].number); 
-    else
-        printf("Not found \n"); 
+
+int num[] = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57};
+int pi, len;
+
+int main(int argc, char *argv[]){
+    int key, cyphavalue;
+    char cyphar_text[50];
+    
+    for (int i = 0; i < 10; i++){
+        if (*argv[1] == num[i]){
+            key = i;
+        }
+    }
+
+    char plain_text[50];
+    printf("Plain text: ");
+    gets(plain_text);
+    len = strlen(plain_text);
+    
+    printf("ciphertext: ");
+    for (pi = 0; pi < len; pi++){
+        for (int i = 0; i < 26; i++){
+            cyphavalue = (key + i) % 26;
+            cyphar_text[pi]= alphabets[cyphavalue];
+            if (plain_text[pi] != alphabets[i]){
+                continue;
+            }
+           if (plain_text[pi] == upper[i]){
+                cyphavalue = (key + i) % 26;
+                cyphar_text[pi]= upper[cyphavalue]; 
+            }else {
+                continue;
+            }
+        }printf("%c", cyphar_text[pi]);
+    }
+    
+    return 0;
 }
