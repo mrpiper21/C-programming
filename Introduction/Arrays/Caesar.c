@@ -18,20 +18,23 @@ int main(int argc, char *argv[]){
 
     key = (int)atoi(argv[argc - 1]);
     int v = (int)key;
-    if (v >= 48 && v <= 57) {
+    printf("%d", v);
+    if (v >= 1 && v <= 26) {
         char plain_text[50];
         printf("Plain text: ");
         gets(plain_text);
         len = strlen(plain_text);
         printf("ciphertext: ");
         for (pi = 0; pi < len; pi++){
+            }for (int i = 0; i < 26; i++){
+                if (plain_text[pi] == upper[i]){
+                    cyphavalue = (key + i) % 26;
+                    cyphar_text[pi] = upper[cyphavalue];
+                }
             for (int j = 0; j < 26; j++){
                 if (plain_text[pi] == alphabets[j]){
                     cyphavalue = (key + j) % 26;
-                    cyphar_text[pi]= alphabets[cyphavalue];
-                }else if (plain_text[pi] == upper[j]){
-                    cyphavalue = (key + j) % 26;
-                    cyphar_text[pi]= upper[cyphavalue]; 
+                    cyphar_text[pi] = alphabets[cyphavalue];
                 }
             }printf("%c", cyphar_text[pi]);
         }
